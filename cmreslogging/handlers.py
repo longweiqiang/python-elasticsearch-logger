@@ -134,7 +134,6 @@ class CMRESHandler(logging.Handler):
                  flush_frequency_in_sec=__DEFAULT_FLUSH_FREQ_INSEC,
                  es_index_name=__DEFAULT_ES_INDEX_NAME,
                  index_name_frequency=__DEFAULT_INDEX_FREQUENCY,
-                 es_doc_type=__DEFAULT_ES_DOC_TYPE,
                  es_additional_fields=__DEFAULT_ADDITIONAL_FIELDS,
                  raise_on_indexing_exceptions=__DEFAULT_RAISE_ON_EXCEPTION,
                  default_timestamp_field_name=__DEFAULT_TIMESTAMP_FIELD_NAME):
