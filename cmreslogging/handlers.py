@@ -72,7 +72,6 @@ class CMRESHandler(logging.Handler):
     __DEFAULT_FLUSH_FREQ_INSEC = 1
     __DEFAULT_ADDITIONAL_FIELDS = {}
     __DEFAULT_ES_INDEX_NAME = 'python_logger'
-    __DEFAULT_ES_DOC_TYPE = 'python_log'
     __DEFAULT_RAISE_ON_EXCEPTION = False
     __DEFAULT_TIMESTAMP_FIELD_NAME = "timestamp"
 
@@ -188,7 +187,6 @@ class CMRESHandler(logging.Handler):
         self.flush_frequency_in_sec = flush_frequency_in_sec
         self.es_index_name = es_index_name
         self.index_name_frequency = index_name_frequency
-        self.es_doc_type = es_doc_type
         self.es_additional_fields = es_additional_fields.copy()
         self.es_additional_fields.update({'host': socket.gethostname(),
                                           'host_ip': socket.gethostbyname(socket.gethostname())})
@@ -292,7 +290,6 @@ class CMRESHandler(logging.Handler):
                 actions = (
                     {
                         '_index': self._index_name_func.__func__(self.es_index_name),
-                        '_type': self.es_doc_type,
                         '_source': log_record
                     }
                     for log_record in logs_buffer
